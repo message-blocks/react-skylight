@@ -44,7 +44,7 @@ export default class SkyLightStateless extends React.Component {
     const overlayStyles = mergeStyles('overlayStyles');
     const closeButtonStyle = mergeStyles('closeButtonStyle');
     const titleStyle = mergeStyles('titleStyle');
-    
+
     let finalStyle;
     if(isVisible) {
       finalStyle = assign({}, dialogStyles, styles.animationOpen);
@@ -53,7 +53,7 @@ export default class SkyLightStateless extends React.Component {
       finalStyle = assign({}, dialogStyles, styles.animationBase);
       overlayStyles.display = 'none';
     }
-    
+
     finalStyle.transitionDuration = `${this.props.transitionDuration}ms`;
     overlayStyles.transitionDuration = `${this.props.transitionDuration}ms`;
 
@@ -75,23 +75,25 @@ export default class SkyLightStateless extends React.Component {
     }
 
     return (
-      <section className={`skylight-wrapper ${this.props.className}`}>
+      <React.Fragment>
         {overlay}
-        <div className="skylight-dialog" style={finalStyle}>
-          <a 
-            role="button" 
-            className="skylight-close-button"
-            onClick={() => this.onCloseClicked()}
-            style={closeButtonStyle}
-          >
-            {this.props.closeButton || '\u00D7'}
-          </a>
-          {title}
-            {this.props.children}
-        </div>
-      </section>
+        <section className={`skylight-wrapper ${this.props.className}`}>
+          <div className="skylight-dialog" style={finalStyle}>
+            <a
+              role="button"
+              className="skylight-close-button"
+              onClick={() => this.onCloseClicked()}
+              style={closeButtonStyle}
+            >
+              {this.props.closeButton || '\u00D7'}
+            </a>
+            {title}
+              {this.props.children}
+          </div>
+        </section>
+      </React.Fragment>
     );
-    
+
   }
 }
 
