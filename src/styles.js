@@ -18,8 +18,6 @@ const styles = {
     position: 'fixed',
     top: '50%',
     left: '50%',
-    marginTop: '-200px',
-    marginLeft: '-25%',
     backgroundColor: '#fff',
     borderRadius: '2px',
     zIndex: '100',
